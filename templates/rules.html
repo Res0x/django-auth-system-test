@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Правила доступа</h2>
+
+<p>
+    Эта страница доступна только пользователю с правом
+    <code>access-rules:manage</code>.
+</p>
+
+<h3>Добавить правило</h3>
+
+<form method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="form_action" value="create">
+
+    <p>
+        <label>Роль</label>
+        <select name="role_id">
+            {% for role in roles %}
+                <option value="{{ role.id }}">{{ role.slug }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        <label>Ресурс</label>
+        <select name="resource_id">
+            {% for resource in resources %}
+                <option value="{{ resource.id }}">{{ resource.code }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        <label>Действие</label>
+        <select name="action_id">
+            {% for action in actions %}
+                <option value="{{ action.id }}">{{ action.code }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <button type="submit">Сохранить правило</button>
+</form>
+
+<hr>
+
+<h3>Список правил</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Роль</th>
+            <th>Ресурс</th>
+            <th>Действие</th>
+            <th>Активно</th>
+            <th>Изменить</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rule in rules %}
+            <tr>
+                <td>{{ rule.id }}</td>
+                <td>{{ rule.role.slug }}</td>
+                <td>{{ rule.resource.code }}</td>
+                <td>{{ rule.action.code }}</td>
+                <td>{{ rule.is_active }}</td>
+                <td>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_action" value="toggle">
+                        <input type="hidden" name="rule_id" value="{{ rule.id }}">
+                        <button type="submit">
+                            {% if rule.is_active %}
+                                Выключить
+                            {% else %}
+                                Включить
+                            {% endif %}
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<hr>
+{% endblock %}

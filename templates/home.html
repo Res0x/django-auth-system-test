@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Главная</h2>
+
+<p>Система аутентификации и авторизации.</p>
+
+<h3>Проверка доступа</h3>
+
+<ul>
+    <li><a href="{% url 'documents' %}">Документы</a></li>
+    <li><a href="{% url 'reports' %}">Отчеты</a></li>
+    <li><a href="{% url 'payments' %}">Платежи</a></li>
+    <li><a href="{% url 'rules_page' %}">Управление правилами доступа</a></li>
+</ul>
+
+{% endblock %}

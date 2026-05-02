@@ -1,0 +1,95 @@
+body {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 16px;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+h1 {
+    margin-bottom: 12px;
+}
+
+nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+a {
+    color: #1f5fbf;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.user-info {
+    margin-top: 12px;
+    color: #555;
+}
+
+.messages {
+    padding: 10px 16px;
+    background: #f5f5f5;
+    border-left: 4px solid #999;
+}
+
+.form-box {
+    max-width: 500px;
+}
+
+.form-box p {
+    margin-bottom: 12px;
+}
+
+input,
+select {
+    padding: 6px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+button.danger {
+    background: #b00020;
+    color: white;
+    border: 1px solid #b00020;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+td,
+th {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+pre {
+    background: #f5f5f5;
+    padding: 12px;
+    overflow-x: auto;
+}

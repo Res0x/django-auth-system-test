@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>403 Forbidden</h2>
+<p>Пользователь авторизован, но у него нет доступа к этому ресурсу.</p>
+
+<p>
+    <a href="{% url 'home' %}">На главную</a>
+</p>
+{% endblock %}

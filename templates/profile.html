@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Профиль</h2>
+
+<form method="post" class="form-box">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="action" value="save">Сохранить</button>
+</form>
+
+<hr>
+
+<h3>Мягкое удаление аккаунта</h3>
+
+<p>
+    После удаления аккаунт останется в базе, но получит статус
+    <code>is_active=False</code>.
+</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" name="action" value="delete" class="danger">
+        Удалить аккаунт
+    </button>
+</form>
+{% endblock %}

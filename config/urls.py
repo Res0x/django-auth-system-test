@@ -1,3 +1,6 @@
-from django.urls import path
+from django.urls import include, path
 
-urlpatterns = []
+
+urlpatterns = [
+    path("", include("core.urls")),
+]
